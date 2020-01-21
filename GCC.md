@@ -22,3 +22,7 @@ e.g. -lm means find the libm.a library in the default library folder(/usr/lib).
 
 -I<folder>: header folder, the default is /usr/include/
 
+
+
+https://www.runoob.com/w3cnote/cpp-static-library-and-dynamic-library.html
+
