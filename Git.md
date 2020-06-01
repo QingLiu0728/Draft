@@ -146,6 +146,17 @@ git add directory
 
 
 
+```
+git clean -f: delete untracked files
+git clean -fd: delete untracked files and folders
+git clean -fdx: delete ignore files, untracked files and folders
+git clean -n [-xfd]: ask before delete
+```
+
+
+
+
+
 ## Squash commits
 
 ### Squash commits in one branch

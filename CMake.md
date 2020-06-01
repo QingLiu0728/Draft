@@ -1,3 +1,6 @@
+## CMake
+
+```
 # extract librpc.a file to get .so files
 # execute_process(COMMAND mkdir -p ${USIMAPI_BINARY_DIR}/temp/obj)
 # execute_process(COMMAND cp ${USIMAPI_SOURCE_DIR}/3rdparty/rpc/lib_x86/librpc.a ${USIMAPI_BINARY_DIR})
@@ -15,11 +18,12 @@
 <!-- add_custom_command(TARGET usim POST_BUILD
     COMMAND ar rcs ${USIMAPI_BINARY_DIR}/lib/libusim.a ${USIMAPI_BINARY_DIR}/temp/obj/*.o)
     message(STATUS "test BUILD DYNAMIC") -->
+```
 
 如果需要将第三方编译好的库文件加入到自己的库文件中，唯一的方法就是将对方的库文件解压成.o文件，通过ar命令把.o文件合并到自己的库文件中去。
 
 
-您只需将这些libA.so和libB.so构建为静态库（归档），即libA.a和libB.a，然后将它们链接到您自己的libstuff.so中如果这个第三方项目的CMakeLists没有为您提供将它们构建为静态的选项，那么您必须自己修改它来添加这个选项，但是只要您不是CMake的完全新手，这就相对容易了。
+您只需将这些libA.so和libB.so构建为静态库，即libA.a和libB.a，然后将它们链接到您自己的libstuff.so中如果这个第三方项目的CMakeLists没有为您提供将它们构建为静态的选项。
 
 
 cmake修改option中的默认值
@@ -130,7 +134,7 @@ possible problem: not found pthread lib on ubuntu
 https://stackoverflow.com/questions/15193785/how-to-get-cmake-to-recognize-pthread-on-ubuntu
 
 
-## add pdb info for Release build on Windows (https://stackoverflow.com/questions/28178978/how-to-generate-pdb-files-for-release-build-with-cmake-flags)
+### add pdb info for Release build on Windows (https://stackoverflow.com/questions/28178978/how-to-generate-pdb-files-for-release-build-with-cmake-flags)
 if(CMAKE_CXX_COMPILER_ID MATCHES "MSVC" AND CMAKE_BUILD_TYPE MATCHES "Release")
    target_compile_options(${TARGET_NAME} PRIVATE /Zi)
 
@@ -138,7 +142,7 @@ if(CMAKE_CXX_COMPILER_ID MATCHES "MSVC" AND CMAKE_BUILD_TYPE MATCHES "Release")
     set_target_properties(${TARGET_NAME} PROPERTIES 
         LINK_FLAGS "/INCREMENTAL:NO /DEBUG /OPT:REF /OPT:ICF"
     )
-
+    
     # Set file name & location
     set_target_properties(${TARGET_NAME} PROPERTIES 
         COMPILE_PDB_NAME ${TARGET_NAME} 
@@ -176,6 +180,10 @@ find_package(Boost REQUIRED)
 find_package(Boost COMPONENTS python)
 Boost_INCLUDE_DIRS
 Boost_LIBRARY_DIRS
+
+### Matlab
+
+
 
 
 ### 血与泪的教训
