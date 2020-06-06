@@ -61,7 +61,7 @@ values()
 keys()
 items(): put all keys and values in tuple
 
-# File
+# Filee
 open file:
 open('name', 'rU')
 'r' for reading, 'w' for writing, 'a' for append
